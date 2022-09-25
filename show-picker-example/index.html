@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>showPicker demo</title>
+<style>
+body,html {
+  height: 98%;
+}
+
+body {
+  display: grid;
+  place-items: center;
+}
+</style>
+<main>
+    <h2>HTMLInputElement showPicker()</h2>
+    <input placeholder="be here then <TAB>"/>
+    <input id="time" type="time"/>
+    <button>Show picker YO!</button>
+
+<h2>showPicker() Resources</h2>
+<ul>
+  <li> <a href="https://github.com/whatwg/html/pull/7319" >https://github.com/whatwg/html/pull/7319</a ></li>
+  <li> <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/showPicker">MDN showPicker</a ></li>
+  <li><a href="https://youtu.be/h3mzFraS8CA?t=157">Introduction in Chrome 99</a></li>
+  <li><a href="https://developer.chrome.com/blog/show-picker/">Chrome Article</a></li>
+
+</ul>
+</main>
+
+<script>
+  
+  document.querySelectorAll("button").forEach((button) => {
+    button.onclick = () => {
+      const input = button.previousElementSibling;
+
+      console.log(button, input)
+      try {
+        let k = input.showPicker();
+          console.log(k)
+      } catch(error) {
+          console.log(error)
+        window.alert(error);
+      }
+    };
+  });
+</script>
+
